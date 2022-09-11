@@ -1,0 +1,9 @@
+QStandardPaths: runtime directory '/run/user/1000' is not owned by UID 1000, but a directory permissions 0700 owned by UID 0 GID 0
+QStandardPaths: runtime directory '/run/user/1000' is not owned by UID 1000, but a directory permissions 0700 owned by UID 0 GID 0
+QStandardPaths: runtime directory '/run/user/1000' is not owned by UID 1000, but a directory permissions 0700 owned by UID 0 GID 0
+qt.xkb.compose: failed to create compose table
+QStandardPaths: runtime directory '/run/user/1000' is not owned by UID 1000, but a directory permissions 0700 owned by UID 0 GID 0
+QStandardPaths: runtime directory '/run/user/1000' is not owned by UID 1000, but a directory permissions 0700 owned by UID 0 GID 0
+QStandardPaths: runtime directory '/run/user/1000' is not owned by UID 1000, but a directory permissions 0700 owned by UID 0 GID 0
+qt.xkb.compose: failed to create compose table
+QStandardPaths: runtime directory '/run/user/1000' is not owned by UID 1000, but a directory permissions 0700 owned by UID 0 GID 0
