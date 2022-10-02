@@ -1,37 +1,37 @@
 #!/usr/bin/env bash
 
 function wheader {
-	HEADER0='#!/usr/bin/env bash'
-	HEADER1='#'
-	HEADER2="# FILE: ${conf}"
-	HEADER3='########'
-	HEADER4='#'
-	echo $HEADER0 > $xCFG
-	echo $HEADER1 >> $xCFG
-	echo $HEADER2 >> $xCFG
-	echo $HEADER3 >> $xCFG
-	echo $HEADER4 >> $xCFG
+	THISCONF=$1
+	THISfCONF=$2
+	HASHBANG='#!/usr/bin/env bash'
+	HEAD[0]='# ############################################################################'
+	HEAD[1]='# # PATH: /opt/local/scripts/rc/bash/'
+	HEAD[2]="# # FILE: ${THISCONF}"
+	HEAD[3]='# ############################################################################'
+	HEAD[4]='#'
+	echo $HASHBANG > $THISfCONF
+	for LINE in "${HEAD[@]}"; do
+	  echo $LINE >> $THISfCONF
+	done
+
 }
-function wfooter {
-	FOOTER0='#'
-	FOOTER1="# END FILE : ${conf}"
-	FOOTER2='################################################################################'
-	echo $FOOTER0 >> $xCFG
-	echo $FOOTER1 >> $xCFG
-	echo $FOOTER2 >> $xCFG
-}
+
 mkdir testing
-for conf in $(ls /opt/local/scripts/rc/bash/[3-9]??_*) ; do	
-	
-	touch testing/tmp
-	CFG="$(basename $conf)"
+mkdir -p ".backup/$(date -u +'%Y%m%d')"
+for CONF in $(ls /opt/local/scripts/rc/bash/[0-9]??_*.conf) ; do	
+	cp $CONF ".backup/$(date -u +'%Y%m%d')/" 
+		
+	CFG="$(basename $CONF)"
 	BAK="./testing/tmp_$CFG"
 	xCFG="./testing/${CFG}"
-	cat $CFG > $BAK
-	wheader 
-	cat $BAK >> $xCFG
-	wfooter
-	# rm tmp
+	cat $CONF > ./tmp
+	echo $CFG
+	echo $BAK
+	echo $xCFG
+	echo -----------
+	wheader $CFG $CONF
+	echo '' >> $CONF
+	cat ./tmp >> $CONF	
 done
 
 
